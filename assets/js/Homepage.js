@@ -24,7 +24,7 @@ function updateTable(urls) {
         const cell3 = row.insertCell(2);
 
         cell1.innerHTML = url.originalUrl;
-        cell2.innerHTML = `<a href="${url.shortUrl}" target="_blank"> http://localhost:8000/user/${url.shortUrl}</a>`;
+        cell2.innerHTML = `<a href="${url.shortUrl}" target="_blank"> http://user/${url.shortUrl}</a>`;
         cell3.innerHTML = url.clicks;
     });
 }
