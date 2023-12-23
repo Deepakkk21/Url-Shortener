@@ -3,8 +3,7 @@ const jwt = require('jsonwebtoken');
 const nanoid = require('nanoid/non-secure');
 
 
-module.exports.Homepage = 
-      function(req,res){
+module.exports.Homepage = function(req,res){
           return res.render("Homepage")
 }
 
