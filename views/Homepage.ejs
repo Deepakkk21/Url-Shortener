@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/homepage.css" rel="stylesheet" type="text/css">
+    <title>Homepage</title>
+</head>
+<body>
+    <h2>Enter The URL in Input box</h2>
+   
+     <form action="/user/shorten" method="post">
+        <input type="text" required="true" placeholder="URL" id="Url" name="Url">
+        <button type="submit"> Get URL</button>
+     </form>
+
+     <form class="logout-form" action="/auth/logout" method="post">
+        <button type="submit">Logout</button>
+      </form>
+
+     <table class="URL_table" id="urlTable">
+        <thead>
+            <tr>
+                <th>full URL</th>
+                <th>short URL</th>
+                <th>Clicks</th>
+            </tr>
+        </thead>
+        <tbody id="urlTableBody"></tbody>
+    </table>
+
+    <script src="/js/Homepage.js"></script>
+     
+</body>
+</html>
