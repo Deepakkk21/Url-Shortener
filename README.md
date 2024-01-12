@@ -1,5 +1,8 @@
 # URl SHORTENER
 
+## deployed on render
+ link : " https://url-shortener-w8ea.onrender.com "
+
 ## Introduction
 
  This site allows users to submit lengthy URLs and obtain shorter versions. Additionally, it provides basic user registration and login functionalities for secure access.
