@@ -3,7 +3,7 @@ const express=require('express');
 const router = express.Router();
 
 
-router.get('/' , userController.Homepage) 
+router.get('/' , authController.signupPage) 
 router.use('/user', require('./users'));
 router.use('/auth', require('./auth'));
 
