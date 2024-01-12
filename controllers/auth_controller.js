@@ -2,6 +2,8 @@ const User = require('../modals/user');
 const generateToken = require('../authentication');
 const sendEmail= require('../mailer')
 const jwt = require('jsonwebtoken');
+const { Sequelize, DataTypes, Op } = require('sequelize');
+
 
 // signup controller
 module.exports.signupPage = function(req,res){
@@ -20,7 +22,7 @@ module.exports.signup = async function(req,res){
                console.log("password don't match")
                return res.redirect('back');
     }else{
-        var user= await User.findOne({email:email});
+        var user= await User.findOne({ where: { email: { [Op.iLike]: email } } });
         if(user){
             // alert user email exists
             console.log("email already exits");
@@ -44,7 +46,7 @@ module.exports.signIn = async function(req,res){
     console.log(req.body);
     var email=req.body.email;
     var password=req.body.password;
-    var user=await User.findOne({email:email});
+    var user=await User.findOne({ where: { email: { [Op.iLike]: email } } });
     if(user){
         console.log(user);
         if(user.password===password){

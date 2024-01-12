@@ -1,17 +1,32 @@
-const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  name: {type: String, required: true},
-  email: {type: String, required: true,unique: true},
-  password : {type :String, required:true , maxLength:15, minLength:3},
-  resetToken: {type: String,default: null},
-  resetTokenExpiry: {type: Date, default: null},
-},{
-    timestamps: true
+const { Sequelize, DataTypes } = require('sequelize');
+
+// Create a Sequelize instance
+const sequelize = new Sequelize('Url_shortener', 'postgres', 'Deep@k2110', {
+  host: 'localhost',
+  dialect: 'postgres',
 });
 
-const User = mongoose.model('User', userSchema);
+// Define your model
+const User = sequelize.define('User', {
+  name: { type: DataTypes.STRING, allowNull: false },
+  email: { type: DataTypes.STRING, allowNull: false, unique: true },
+  password: { type: DataTypes.STRING, allowNull: false, validate: { len: [3, 15] } },
+  resetToken: { type: DataTypes.STRING, defaultValue: null },
+  resetTokenExpiry: { type: DataTypes.DATE, defaultValue: null },
+}, {
+  timestamps: true,
+});
 
-module.exports=User;
+// Sync the model with the database
+(async () => {
+  try {
+    await sequelize.sync();
+    console.log('Database and tables created!');
+  } catch (error) {
+    console.error('Error creating database and tables:', error);
+  }
+})();
+
+module.exports = User;
