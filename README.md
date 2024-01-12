@@ -16,8 +16,9 @@
 ## Platform usd 
 
 1. VS code
-2. pgAdmin4
-
+2. pgAdmin4 (for teseting db in localhost)
+3. Render
+   
 ## features of Sites 
 
 1. Authentication
