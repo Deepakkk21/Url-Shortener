@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const port = 8000;
-require('./config/mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
