@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: postgres
+    environment:
+      POSTGRES_DB: postgres123
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Deep@k2110
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dk12345@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: password123
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+
+  nodejs:
+    build:
+      dockerfile: Dockerfile
+    restart: always
+    container_name: nodejs
+    ports:  
+      - "8000:8000"
+    depends_on:
+      - pgadmin
+      - db
+    environment:
+      DATABASE_URL: postgresql://postgres:Deep@k2110@db:5432/postgres123
+    volumes:
+      - .:/app  
+
+                                       

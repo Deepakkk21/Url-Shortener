@@ -2,8 +2,17 @@
 
 const { Sequelize, DataTypes } = require('sequelize');
 
+// for localhost
+
 // const sequelize = new Sequelize('Url_shortener', 'postgres', 'Deep@k2110', {
 //   host: 'localhost',
+//   dialect: 'postgres',
+// });
+
+// for docker 
+
+// const sequelize = new Sequelize('postgres123', 'postgres', 'Deep@k2110', {
+//   host: 'db',
 //   dialect: 'postgres',
 // });
 
