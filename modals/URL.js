@@ -16,7 +16,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 //   dialect: 'postgres',
 // });
 
-const connectionString = 'postgres://url_shortener_2nqg_user:zAkVxXSbUgG0vnoagmOAV5Utuukrs9pB@dpg-cmgjat821fec739s5odg-a.singapore-postgres.render.com/url_shortener_2nqg';
+const connectionString = 'postgresql://url_shortener_8qy7_user:7eDdT4rT14CHao4TPhsvBykO67gqrNjn@dpg-cre9bqlsvqrc73fgs5bg-a/url_shortener_8qy7';
 
 const sequelize = new Sequelize(connectionString, {
   dialectOptions: {
