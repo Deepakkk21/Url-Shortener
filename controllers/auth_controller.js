@@ -90,7 +90,8 @@ module.exports.signIn = async function(req,res){
             await user.save();
     
             // Send the reset email
-            const resetLink = `http://localhost:8000/auth/resetPassword/${resetToken}`;
+            // const resetLink = `http://localhost:8000/auth/resetPassword/${resetToken}`;
+            const resetLink = `https://url-shortener-w8ea.onrender.com/auth/resetPassword/${resetToken}`;
             const emailBody = `Click on the following link to reset your password: ${resetLink}`;
             await sendEmail(user.email, 'Password Reset', emailBody);
     
